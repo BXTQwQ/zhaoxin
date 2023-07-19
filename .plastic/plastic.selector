@@ -1,0 +1,4 @@
+repository "招新项目@wechat_os_qy02cw8maqsfvivd4ob6i7lq0@cloud.cn"
+  path "/"
+    br "/main"
+    co "/main"
