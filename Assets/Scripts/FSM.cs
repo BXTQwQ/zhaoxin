@@ -1,11 +1,11 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public enum StateType
 {
-    Idle , Attack //¼ÓÈëËùÓĞĞè×ª»»µÄ×´Ì¬
+    Idle , Attack , Injured //åŠ å…¥æ‰€æœ‰éœ€è½¬æ¢çš„çŠ¶æ€
 }
 
 [Serializable]
@@ -49,7 +49,7 @@ public class FSM : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
