@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharactorControl : MonoBehaviour
+public class EntityControl : MonoBehaviour
 {
-    
+    #region movementControl
     /// <summary> Let object move towards to given direction with given velocity. 
     /// NOTICE: Please use it ONLY in FixedUpdate, 
     /// anything that related with force, velocity, etc. ARE strictly required to place in FixedUpdate.
@@ -37,4 +37,6 @@ public class CharactorControl : MonoBehaviour
         float y = Input.GetAxis("Vertical");
         return new Vector2(x,y);
     }
+
+    #endregion
 }
