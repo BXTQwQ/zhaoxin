@@ -2,29 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainControl : MonoBehaviour
+public class MainControl : EntityControl
 {
+    
     public bool isPaused;
-    EntityControl controller;
+    Rigidbody2D rigid;
+    Charastat stat;
     Vector2 dir;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rigid = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if((bool)MonoSingleton.Get("isPause"))
+        if(!(bool)MonoSingleton.Get("isPause"))
         {
-            //Operate
-            dir = controller.getInput();
+            dir = getInput();
         }
     }
 
     void FixedUpdate()
     {
-        //controller.moveToward(dir, );
+        moveToward(dir, stat.speed * stat.speedMultiplier * Time.fixedDeltaTime);
     }
 }
