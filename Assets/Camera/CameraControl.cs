@@ -1,5 +1,7 @@
+using System.Runtime.CompilerServices;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraControl : MonoBehaviour
@@ -13,25 +15,35 @@ public class CameraControl : MonoBehaviour
         cam = GetComponentInChildren<Camera>();
     }
 
+    void Update()
+    {
+        getProperty();
+    }
+
     // Update is called once per frame
     void LateUpdate()
     {
         follow();
     }
 
+    void getProperty()
+    {
+        target = CameraProperty.target.transform;
+        ratio = CameraProperty.ratio;
+    }
     void follow()
     {
         gameObject.transform.position = Vector2.Lerp(gameObject.transform.position, target.position, ratio);
     }
+}
 
-    public void setCameraProperty()
+public static class CameraProperty
+{
+    public static GameObject target;
+    public static float ratio;
+    public static void changeTarget(GameObject target, float ratio)
     {
-        
-    }
-
-    public void changeTarget(GameObject target, float ratio)
-    {
-        this.target = target.transform;
-        this.ratio = ratio;
+        CameraProperty.target = target;
+        CameraProperty.ratio = ratio;
     }
 }
